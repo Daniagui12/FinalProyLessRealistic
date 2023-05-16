@@ -1,0 +1,83 @@
+﻿{
+"audios":[
+		{
+			"source":"Caso2Reanimacion"
+		},
+		{
+			"source":"Frase 14"
+		}
+	],
+	"preguntas":[
+		{
+			"pregunta":"¿Cuál es la edad gestacional?",
+			"source":"Caso2 Pregunta 1"
+		},
+		{
+			"pregunta":"¿Cuántos bebés son?",
+			"source":"Frase 6 Pregunta 2"
+		},
+		{
+			"pregunta":"¿Hay factores de riesgo materno? ",
+			"source":"Caso 2 Pregunta 3"
+		},
+		{
+			"pregunta":"Características del líquido amniótico",
+			"source":"Caso2 Pregunta 4"
+		}
+
+	],
+
+	"objetos":[
+		{
+			"nombre": "Compresa caliente"
+		},
+		{
+			"nombre": "Cronometro"
+		},
+		{
+			"nombre": "Sonda de succión Fr 6"
+		},
+		{
+			"nombre": "Mascara neonatal recién nacido a término"
+		},
+		{
+			"nombre": "Gorro"
+		},
+		{
+			"nombre": "Bolsa de solución salina de 500 ml"
+		},
+		{
+			"nombre": "Pinza"
+		},
+		{
+			"nombre": "Hoja de laringoscopio"
+		},
+		{
+			"nombre": "Base de laringoscopio"
+		},
+		{
+			"nombre": "Jeringa"
+		},
+		{
+			"nombre": "Tijeras"
+		},
+		{
+			"nombre": "Ampolla de adrenalina"
+		},
+		{
+			"nombre": "Catéter umbilical"
+		},
+		{
+			"nombre": "Tubo orotraqueal"
+		},
+		{
+			"nombre": "Bolsa autoinflable"
+		},
+		{
+			"nombre": "Dispositivo en T Neopuff"
+		},
+		{
+			"nombre": "Neotee Dispositivo en T"
+		}
+	]	
+}

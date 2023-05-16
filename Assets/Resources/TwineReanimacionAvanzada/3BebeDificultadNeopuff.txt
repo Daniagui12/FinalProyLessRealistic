@@ -1,0 +1,1903 @@
+﻿:: StoryTitle
+Proyecto neonatos Unity
+
+:: UserScript[script]
+
+
+:: UserStylesheet[stylesheet]
+
+:: Fin de eleccion[START]
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.IdentificarComoCasoQuejido()
+ControllerTwine.ActivarGameobject(FlechaCalentador)
+ControllerTwine.ActivarGameobject(ControllerPreparacionEquipos)
+ControllerTwine.DestruirGameobject("Pera De Goma")
+ControllerTwine.bebeEnContactoConMadre()
+ControllerTwine.IdentificarComoCasoReanimacion()
+>
+[[Ver Preparacion equipo]]
+
+:: Ver Preparacion equipo
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.DesactivarGameobject(ControllerPreparacionEquipos)
+ControllerTwine.ActivarAudioConEspera("IndicacionVerOmitirEtapaDispositivosVentilatorios";false)
+ControllerTwine.DestruirGameobject("RevisarElementosSeleccionados")
+>
+¿Antes del caso quieres practicar la preparación de los dispositivos?
+Sí, quiero practicar[[Inicio de neopuff]]
+Ya he practicado, prefiero omitir esta etapa[[Realizar acciones de tutorial]]
+
+:: Inicio de neopuff
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject(ElementosReanimacionNeopuff)
+ControllerTwine.ActivarAudioConEspera("InicioNeopuff";true)
+>
+Debes asegurarte de preparar adecuadamente el dispositivo. Vamos a realizarlo.
+[[Identificar partes neopuff]]
+
+:: Identificar partes neopuff
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject(FlechaCalentador)
+ControllerTwine.DestruirGameobject("Particle System calentador")
+ControllerTwine.ActivarGameobject(MascaritaP)
+ControllerTwine.ActivarGameobject(SK_Neopuff_Tip_Out)
+ControllerTwine.ActivarGameobject(MangueraMascara)
+ControllerTwine.ActivarAudioConEspera("ContenidoNeopuff";true)
+>
+[[Paso conectar manguera dispositivo]]
+
+:: Paso conectar manguera dispositivo
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PasoConectarMangueraNeopuff";true)
+>
+Conecta la manguera fuente de gas fresco al dispositivo.
+[[Conectar manguera dispositivo]]
+
+:: Conectar manguera dispositivo
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("TipMangueraFuente")
+ControllerTwine.ActivarGameobject("TipManguera")
+ControllerTwine.ActivarGameobject2("TipManguera")
+>
+Conecta la manguera fuente de gas fresco al dispositivo.
+[[Se conecta manguera dispositivo]]
+
+:: Se conecta manguera dispositivo
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("SeConectoMangueraDispositivo";true)
+ControllerTwine.DestruirGameobject(SK_Neopuff_Tip)
+ControllerTwine.DestruirGameobject("TipMangueraFuente")
+ControllerTwine.ActivarGameobject("Manguera_neopuff_conectada")
+>
+Conecta la manguera fuente de gas fresco al dispositivo.
+[[Paso conectar manguera fuente de oxigeno]]
+
+:: Paso conectar manguera fuente de oxigeno
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("NombreFlujometro")
+ControllerTwine.ActivarAudioConEspera("PasoConectarMangueraFuente";true)
+>
+Conecta la manguera fuente de gas fresco a la fuente de oxígeno, bala de oxígeno o flujómetro de pared.
+[[Conectar manguera a fuente de oxigeno]]
+
+:: Conectar manguera a fuente de oxigeno
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("Tip_ConectarFlujo_Neopuff")
+ControllerTwine.ActivarGameobject("ConexionANeopuff")
+ControllerTwine.ActivarGameobject("GuiaConexion")
+ControllerTwine.ActivarGameobject2("GuiaConexion")
+ControllerTwine.ActivarGameobject("GuiaConexionTipNeopuff")
+ControllerTwine.ActivarGameobject2("GuiaConexionTipNeopuff")
+>
+Conecta la manguera fuente de gas fresco a la fuente de oxígeno, bala de oxígeno o flujómetro de pared.
+Conectar manguera a fuente de oxigeno[[Paso abrir fuente de gas]]
+
+:: Paso abrir fuente de gas
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarColliderFlujometro()
+ControllerTwine.DestruirGameobject("GuiaConexion")
+ControllerTwine.DestruirGameobject("ArrowTip")
+ControllerTwine.DestruirGameobject("Tip_ConectarFlujo_Neopuff")
+ControllerTwine.DestruirGameobject("GuiaConexionTipNeopuff")
+ControllerTwine.ActivarGameobject("TipFlujometroNeopuff")
+ControllerTwine.ActivarAudioConEspera("PasoAbrirFuente";false)
+>
+¿En cuántos litros por minuto deberíamos establecer el flujómetro?
+5 litros/minuto[[Respuesta incorrecta flujometro]]
+6 a 8 litros/minuto[[Respuesta correcta flujometro]]
+10 a 12 litros/minuto[[Respuesta incorrecta flujometro]]
+
+:: Respuesta incorrecta flujometro
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("NoEscoge6a8ltsmin";true)
+>
+El flujometro debería establecerse en 6 a 8 lits/min.
+[[Indicacion acomodar 6 a 8 litros/minuto]]
+
+:: Respuesta correcta flujometro
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioBienAbrirFlujometro";true)
+>
+Abre la fuente de gas fresco. Debe establecerse de 6 a 8 lits/min.
+[[Indicacion acomodar 6 a 8 litros/minuto]]
+
+:: Indicacion acomodar 6 a 8 litros/minuto
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("DebeAbrirFlujometro";true)
+>
+Abre la fuente de gas fresco. Debe establecerse de 6 a 8 lits/min.
+[[Acomodar 6 a 8 litros/minuto]]
+
+:: Acomodar 6 a 8 litros/minuto
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("MedidaFlujometro")
+>
+Abre la fuente de gas fresco. Debe establecerse de 6 a 8 lits/min.
+[[Paso inflar reservorio]]
+
+:: Paso inflar reservorio
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("NombreFlujometro")
+ControllerTwine.ActivarAudioConEspera("PasoConexionRealizadaNeotee";true)
+ControllerTwine.ActivarAnimacion("Flujometro";"Abrir")
+ControllerTwine.DestruirGameobject("MedidaFlujometro")
+ControllerTwine.ActivarGameobject("CanvasFlujometro")
+>
+[[Conectar manguera de mascara]]
+
+:: Conectar manguera de mascara
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("ConectarMangueraMascara";true)
+>
+Conecta la manguera al dispositivo en T neopuff.
+[[Paso conectar manguera a neopuff]]
+
+:: Paso conectar manguera a neopuff
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("TipMangueraMascara")
+ControllerTwine.ActivarGameobject("ConexionMangueraMascara")
+>
+Conecta la manguera al dispositivo en T neopuff.
+[[Manguera conectada a dispositivo e inicio mascara]]
+
+:: Manguera conectada a dispositivo e inicio mascara
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("ConexionMangueraMascara")
+ControllerTwine.ActivarGameobject("MangueraMascaraConectada")
+ControllerTwine.DestruirGameobject("TipMangueraMascara")
+ControllerTwine.DestruirGameobject("MangueraMascara")
+ControllerTwine.ActivarAudioConEspera("MangueraConectadaMascara";true)
+>
+Conecta la máscara
+[[Conectar mascara]]
+
+:: Conectar mascara
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("ColliderConexion")
+>
+Conecta la máscara
+[[Mascara conectada]]
+
+:: Mascara conectada
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("OrdenAjustarPresiones";true)
+ControllerTwine.DestruirGameobject("MascaritaP")
+ControllerTwine.DestruirGameobject("ColliderConexion")
+ControllerTwine.ActivarGameobject("MascaraConectada")
+>
+Debemos ajustar la PEEP y la PIP.
+[[Paso PEEP]]
+
+:: Paso PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("FlechaNeopuff")
+ControllerTwine.ActivarAudioConEspera("PasoAspiracionPEEPNeopuff";true)
+>
+Toma la máscara y bloquea el flujo de salida de aire.
+[[Indicacion mirar televisor]]
+
+:: Indicacion mirar televisor
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproduceVideoSinCambiarNodo(CerrarFlujoSalidaAire)
+ControllerTwine.ActivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarTelevisor";true)
+>
+[[Audio bloquear máscara]]
+
+:: Audio bloquear máscara
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("OcluirMascaraNeopuff";true)
+>
+[[Ajustar PEEP tiempo de espera]]
+
+:: Ajustar PEEP tiempo de espera
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(3)
+>
+[[Paso ajustar PEEP]]
+
+:: Paso ajustar PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject(FlechaTV)
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ActivarGameobject("ManoTutorial")
+ControllerTwine.DesactivarGameobject("DistanceHandLeft")
+ControllerTwine.ActivarGameobject("ExtremoConectado")
+ControllerTwine.ActivarAudioConEspera("PasoRevisarPEEPNeopuff";true)
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PEEPInicio")
+>
+La máscara del dispositivo estará en tu mano izquierda. 
+[[Retroalimentacion PEEP]]
+
+:: Retroalimentacion PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RetroalimentacionPEEP";true)
+>
+Verifica el valor actual de la PEEP.
+[[Paso PEEP Pregunta]]
+
+:: Paso PEEP Pregunta
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PreguntaPEEP";false)
+>
+¿Qué valor debe establerse para la PEEP?
+Dejar la PEEP en el valor actual de 10 mm de H2O[[Respondio mal PEEP]]
+Ajustar la PEEP entre 5-6 cm de H2O[[Respondio bien PEEP]]
+Ajustar la PEEP entre 3-4 cm de H2O[[Respondio mal PEEP]]
+
+:: Respondio bien PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioBienPEEP";true)
+>
+La PEEP debe establecerse entre 5-6 cm de H2O
+[[Indicacion mirar a televisor]]
+
+:: Respondio mal PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioMalPEEP";true)
+>
+La PEEP debe establecerse entre 5-6 cm de H2O
+[[Indicacion mirar a televisor]]
+
+:: Indicacion mirar a televisor
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject(ImgPEEPNeopuff)
+ControllerTwine.ActivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarDeNuevoTelevisor";true)
+>
+[[Ajustar PEEP Imagen]]
+
+:: Ajustar PEEP Imagen
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("AjustarPEEPIndicacionInicialNeopuff";true)
+>
+[[Ajustar PEEP Video]]
+
+:: Ajustar PEEP Video
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject(ImgPEEPNeopuff)
+ControllerTwine.ReproduceVideoSinCambiarNodo(VideoGirarValvula)
+ControllerTwine.ActivarAudioConEspera("IndicacionValvulaPEEP";true)
+>
+Derecha para incrementar PEEP, Izquierda para disminuir PEEP
+[[Ajustar PEEP Video tiempo de espera]]
+
+:: Ajustar PEEP Video tiempo de espera
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(4)
+>
+[[Audio regresar a dispositivo]]
+
+:: Audio regresar a dispositivo
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject(Video)
+ControllerTwine.DesactivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("DialogoOrdenAjustarPEEP";true)
+>
+Toma tu dispositivo y gira la válvula para establecer la PEEP.
+[[Ajustar PEEP]]
+
+:: Ajustar PEEP
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("GuiaPEEP")
+>
+Girar hacia la izquierda para dar menos PEEP. Ajusta la PEEP entre 5-6 cm de H2O
+[[Indicacion mirar PEEP en dispositivo]]
+
+:: Indicacion mirar PEEP en dispositivo
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PEEP5a7")
+ControllerTwine.DestruirGameobject("GuiaPEEP")
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarRelojPEEP";true)
+>
+Revisa el nuevo valor de la PEEP.
+[[Ajustar PEEP dispositivo tiempo de espera]]
+
+:: Ajustar PEEP dispositivo tiempo de espera
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(3)
+>
+Revisa el nuevo valor de la PEEP.
+[[Indicacion mirar televisor PEEP complemento]]
+
+:: Indicacion mirar televisor PEEP complemento
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarDeNuevoTelevisor";true)
+>
+[[Ajustar PEEP complemento]]
+
+:: Ajustar PEEP complemento
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproduceVideoSinCambiarNodo(ExplicacionPEEPNeopuff)
+ControllerTwine.ActivarAudioConEspera("DialogoComoDarPEEP";true)
+>
+Puedes brindar PEEP al bebé sólo ajustando la máscara sobre nariz y boca. 
+[[Ajustar PEEP complemento tiempo de espera]]
+
+:: Ajustar PEEP complemento tiempo de espera
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(4)
+>
+[[Paso PICO inicio]]
+
+:: Paso PICO inicio
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproduceVideoSinCambiarNodo(VideoInicialPICO)
+ControllerTwine.ActivarAudioConEspera("PasoPICO";true)
+>
+Toma tu dispositivo y tapa el orificio resaltado para revisar el valor actual de la PIP.
+[[Paso PICO inicial]]
+
+:: Paso PICO inicial
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("FlechaTV")
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ActivarGameobject("GuiaPICO")
+ControllerTwine.ActivarGameobject2("GuiaPICO")
+>
+Toma tu dispositivo y tapa el orificio resaltado para revisar el valor actual de la PIP.
+[[Paso PICO valor mal]]
+
+:: Paso PICO valor mal
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("GuiaPICORenderer")
+ControllerTwine.ActivarAudioConEspera("PasoPICOValorMal";false)
+>
+¿Qué deberíamos hacer con la PIP?
+Ajustar PICO entre 20-25[[Respondio bien PICO]]
+Dejar la PICO en el valor actual[[Respondio mal PICO]]
+Ajustar PICO entre 28-35[[Respondio mal PICO]]
+
+:: Respondio bien PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RetroalimentacionBienPICO";true)
+>
+La PIP debería establecerse entre 20-25
+[[Acomodar valvula PICO]]
+
+:: Respondio mal PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RetroalimentacionMalPICO";true)
+>
+La PIP debería establecerse entre 20-25
+[[Acomodar valvula PICO]]
+
+:: Acomodar valvula PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("IndicacionMoverValvulaNeopuff";true)
+>
+Mueve la válvula del neopuff para ajustar la PIP en un valor en el rango.
+[[Acomodar valvula PICO accion]]
+
+:: Acomodar valvula PICO accion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("GuiaPICOSemaforo")
+>
+Mueve la válvula del neopuff para ajustar la PIP en un valor en el rango.
+[[Paso PICO audio]]
+
+:: Paso PICO audio
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("GuiaPICOSemaforo")
+ControllerTwine.ActivarAudioConEspera("VerificarPICO";true)
+>
+Verifica el valor de la PIP.
+[[Paso PICO]]
+
+:: Paso PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PICOMal")
+>
+Toma tu dispositivo y tapa el orificio resaltado para verificar que la PIP se encuentre en el rango sugerido
+[[Ajustar PICO entre 20-25]]
+
+:: Ajustar PICO entre 20-25
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject(CanvasNombresNeopuff)
+ControllerTwine.ActivarAudioConEspera("RetroalimentacionPICO";true)
+>
+La PIP se encuentra en un valor óptimo
+[[Indicacion mirar televisor recordatorio PICO]]
+
+:: Indicacion mirar televisor recordatorio PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarDeNuevoTelevisor";true)
+>
+[[Recordatorio PICO]]
+
+:: Recordatorio PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproduceVideoSinCambiarNodo(CadenciaPICONeopuff)
+ControllerTwine.ActivarAudioConEspera("RecordatorioPICO";true)
+>
+[[Tutorial VPP PICO tiempo de espera]]
+
+:: Tutorial VPP PICO tiempo de espera
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(3)
+>
+[[Paso tutorial VPP con PICO]]
+
+:: Paso tutorial VPP con PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("OrdenParaPracticarPICO";true)
+>
+[[Paso hacer tutorial VPP con PICO]]
+
+:: Paso hacer tutorial VPP con PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("Video")
+>
+Tapa la válvula con tu dedo para practicar cómo dar VPP
+[[Indicacion mirar televisor tutorial VPP PICO]]
+
+:: Indicacion mirar televisor tutorial VPP PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("IndicacionMirarDeNuevoTelevisor";true)
+>
+[[Final Paso tutorial VPP con PICO]]
+
+:: Final Paso tutorial VPP con PICO
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproduceVideoSinCambiarNodo(RecordatorioVPPNeopuff)
+ControllerTwine.ActivarAudioConEspera("DialogoFinalPracticarPICO";true)
+>
+[[Indicacion para quitar la tapa]]
+
+:: Indicacion para quitar la tapa
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.DesactivarGameobject(FlechaTV)
+ControllerTwine.ActivarAudioConEspera("TapaNeopuff";true)
+>
+Abre la tapa del botón de seguridad de presión.
+[[Se debe quitar la tapa]]
+
+:: Se debe quitar la tapa
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("TapaCollider")
+ControllerTwine.ActivarGameobject("TapaOutline")
+>
+Abre la tapa del botón de seguridad de presión.
+[[Se debe girar la valvula de la tapa]]
+
+:: Se debe girar la valvula de la tapa
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("TapaCollider")
+ControllerTwine.DesactivarGameobject("TapaOutline")
+ControllerTwine.ActivarGameobject("DialOutline")
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"AbreTapa")
+ControllerTwine.ActivarAudioConEspera("IndicacionBotonDePresion";true)
+>
+Con el botón de seguridad de presión se puede limitar la presión máxima.
+[[Se debe cerrar la tapa]]
+
+:: Se debe cerrar la tapa
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("CerrarTapaNeopuff";true)
+>
+Cierra la tapa del botón de seguridad de presión.
+[[Se debe cerrar la tapa accion]]
+
+:: Se debe cerrar la tapa accion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("TapaCollider1")
+ControllerTwine.ActivarGameobject("TapaOutline1")
+>
+Cierra la tapa del botón de seguridad de presión.
+[[Pregunta final preparacion neopuff]]
+
+:: Pregunta final preparacion neopuff
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"CierraTapa")
+ControllerTwine.DesactivarGameobject("TapaCollider1")
+ControllerTwine.DesactivarGameobject("DialOutline")
+ControllerTwine.DesactivarGameobject("TapaOutline1")
+ControllerTwine.DesactivarGameobject("FlechaNeopuff")
+ControllerTwine.DesactivarGameobject("ManoTutorial")
+ControllerTwine.ActivarGameobject("DistanceHandLeft")
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PICOBaja")
+ControllerTwine.ActivarGameobject("MangueraParaCaso")
+ControllerTwine.ActivarAudioConEspera("PreguntaFinalTutorial";false)
+>
+¿Cuál es una ventaja del neopuff con respecto a la bolsa autoinflable?
+Puede dar PEEP[[Respondio bien pregunta final]]
+Da oxígeno a flujo libre[[Respondio mal pregunta final]]
+Da un flujo más variable[[Respondio mal pregunta final]]
+
+:: Respondio bien pregunta final
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("BienPreguntaFinalTutorial";true)
+>
+[[Paso preparar blender]]
+
+:: Respondio mal pregunta final
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("MalPreguntaFinalTutorial";true)
+>
+[[Paso preparar blender]]
+
+[[Paso preparar blender]]
+
+:: Paso preparar blender
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("NombreBlender")
+ControllerTwine.ActivarAudioConEspera("PrepararBlender";false)
+>
+¿Cuál es el valor ideal para iniciar la FiO2 en caso de ser necesario?
+Comenzar al 40%[[Respondio mal Blender]]
+Comenzar ajustando gradualmente de 21-30%[[Respondio bien Blender]]
+Comenzar al 100%[[Respondio mal Blender]]
+
+:: Respondio bien Blender
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondiobienBlender";true)
+>
+Efectivamente la FiO2 al inicio del caso debería establecerse gradulmente del 21% al 30%
+[[Establecer la FiO2]]
+
+:: Respondio mal Blender
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondiomalBlender";true)
+>
+La FiO2 al inicio del caso debería establecerse gradualmente del 21% al 30%
+[[Establecer la FiO2]]
+
+:: Establecer la FiO2
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("AjustarBlender";true)
+>
+Ajusta la FiO2 en el blender
+[[Establecer la FiO2 accion]]
+
+:: Establecer la FiO2 accion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobjectByTag("BoneBlender")
+>
+Ajusta la FiO2 en el blender
+[[Paso conectar succionador]]
+
+:: Paso conectar succionador
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("NombreSuccionador")
+ControllerTwine.DestruirGameobject("NombreBlender")
+ControllerTwine.ActivarAnimacion("Anim_BlenderDial";"Mover30")
+ControllerTwine.ActivarAudioConEspera("PrepararSuccionador";false)
+>
+¿En qué valor debemos establecer la presión del succionador?
+[[Colocar presión entre 90-100]]
+[[Colocar presión entre 10-50]]
+[[Colocar presión entre 70-90]]
+
+:: Colocar presión entre 10-50
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioMalSuccionador";true)
+>
+La presión del succionador debe establecerse en un valor entre 90-100
+[[Colocar presión succionador]]
+
+:: Colocar presión entre 70-90
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioMalSuccionador";true)
+>
+La presión del succionador debe establecerse en un valor entre 90-100
+[[Colocar presión succionador]]
+
+:: Colocar presión entre 90-100
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespondioBienSuccionador";true)
+>
+Establece la presión en el succionador entre 90-100
+[[Colocar presión succionador]]
+
+:: Colocar presión succionador
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("ColocarPresionSuccionador";true)
+>
+Establece la presión en el succionador entre 90-100
+[[Colocar presión succionador accion]]
+
+:: Colocar presión succionador accion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("BotonSuccionador")
+>
+Establece la presión en el succionador entre 90-100
+[[Paso llamar a alguien]]
+
+:: Paso llamar a alguien
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("CanvasSuccionador")
+ControllerTwine.ActivarAnimacion("Succionador";"Abrir")
+ControllerTwine.DestruirGameobject("NombreSuccionador")
+ControllerTwine.DestruirGameobject("BotonSuccionador")
+ControllerTwine.ActivarAudioConEspera("PasoLlamarAlguien";false)
+>
+Antes de continuar, ¿Deseas llamar a alguien para que lo acompañe?
+Si[[Si llamar a alguien]]
+No[[No llamar a nadie]]
+
+:: Si llamar a alguien
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("LlamarAlguien";true)
+ControllerTwine.ActivarGameobject("TriggerCaminarNPC")
+ControllerTwine.ActivarAnimacion("Door Frame_MD_02";"Abrir2")
+>
+Deben estar presente por lo menos 2 personas entrenadas reanimación.
+[[Presentarse con la madre indicacion]]
+
+:: No llamar a nadie
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("NoLlamarAlguien";false)
+>
+Deben estar presente por lo menos 2 personas entrenadas reanimación.
+[[Solicitar asistencia adicional]]
+Atenderé solo este caso[[No llamar a nadie]]
+
+:: Solicitar asistencia adicional
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PasoSolicitarAyuda";true)
+ControllerTwine.ActivarGameobject("TriggerCaminarNPC")
+ControllerTwine.ActivarAnimacion("Door Frame_MD_02";"Abrir2")
+>
+Llegará alguien a la sala a acompañarte en el proceso.
+[[Presentarse con la madre indicacion]]
+
+:: Presentarse con la madre indicacion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("CanvasSuccionador")
+ControllerTwine.ActivarAnimacion("Succionador";"Abrir")
+ControllerTwine.DestruirGameobject("NombreSuccionador")
+ControllerTwine.DestruirGameobject("BotonSuccionador")
+ControllerTwine.ActivarAudioConEspera("AcercarseMadre";true)
+ControllerTwine.esPasoAnimacionBolsa(false)
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.DestruirGameobject(MsgPreparacionEquipos)
+>
+Acercate a la madre y presentate con ella para poder continuar.
+[[Dialogo Cronometro]]
+
+:: Dialogo Cronometro
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.ActivarGameobject("FlechaCronometroSemaforo")
+ControllerTwine.CambiarColorSemaforo("rojo")
+ControllerTwine.ActivarAudioConEspera("InstruccionCronometro";true)
+>
+Ten en cuenta el cronómetro durante el procedimiento
+[[Dialogo Semaforo]]
+
+:: Dialogo Semaforo
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.ActivarAudioConEspera("InstruccionSemaforo";true)
+>
+[[Presentarse con la madre]]
+
+:: Realizar acciones de tutorial
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("ElementosReanimacionNeopuff")
+ControllerTwine.DestruirGameobject(CanvasNombresNeopuff)
+ControllerTwine.ActivarGameobject("Manguera_neopuff_conectada")
+ControllerTwine.ActivarGameobject("ConexionANeopuff")
+ControllerTwine.ActivarGameobject("MangueraParaCaso")
+ControllerTwine.ActivarGameobject("TipFlujometroNeopuff")
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PEEPInicio")
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PEEP5a7")
+ControllerTwine.ActivarGameobjectByTag("BoneBlender")
+ControllerTwine.DestruirGameobject(OutlineDial)
+ControllerTwine.ActivarAnimacion("Anim_BlenderDial";"Mover30")
+ControllerTwine.ActivarGameobject("TriggerCaminarNPC")
+ControllerTwine.ActivarAnimacion("Door Frame_MD_02";"Abrir2")
+ControllerTwine.ActivarGameobject("CanvasSuccionador")
+ControllerTwine.ActivarAnimacion("Succionador";"Abrir")
+ControllerTwine.ActivarAnimacion("Flujometro";"Abrir")
+ControllerTwine.ActivarGameobject("CanvasFlujometro")
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+Acercate a la madre y presentate con ella para poder continuar.
+[[Presentarse con la madre]]
+
+:: Presentarse con la madre
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.DesactivarGameobject(FlechaCalentador)
+ControllerTwine.OrdenarSaludoAMadre()
+ControllerTwine.DestruirGameobject("RevisarElementosSeleccionados")
+ControllerTwine.DestruirGameobject("SalaReanimacion")
+ControllerTwine.DestruirGameobject("Particle System calentador")
+>
+Saluda a la madre y presentate como el doctor que atendará a su bebé.
+Hola, soy el doctor que atenderá a su bebé el día de hoy.[[Presentacion madre]]
+
+:: Presentacion madre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("LocomotionController")
+ControllerTwine.ActivarAudioMadre("DialogoMadre")
+ControllerTwine.ActivarGameobject(ElementosMinutoOro)
+ControllerTwine.ActivarGameobject(ElementosMesaReanimacion)
+ControllerTwine.ActivarGameobject(GorroCasoNeopuff)
+ControllerTwine.ActivarGameobject(PinzaCalentadorRA)
+ControllerTwine.ActivarGameobject("ElementosReanimacionCaso")
+ControllerTwine.DestruirGameobject("Gorro1")
+ControllerTwine.DestruirGameobject("Pera De Goma")
+ControllerTwine.DestruirGameobject("Sonda")
+ControllerTwine.DestruirGameobject("Estetoscopio")
+ControllerTwine.DestruirGameobject("CanvasFC")
+ControllerTwine.DestruirGameobject("Bolsa autoinflable")
+>
+[[Antes nacer el bebe]]
+
+:: Antes nacer el bebe
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Doctora_A";"Nacimiento")
+ControllerTwine.ActivarAudio("DialogoPrepararse")
+ControllerTwine.DestruirGameobject("Estetoscopio")
+ControllerTwine.EsperarTiempoSegundos(1)
+>
+[[Ir nacer el bebe 1]]
+
+:: Ir nacer el bebe 1
+{
+ControllerTwine.RequiereEspera()
+}
+<
+bebe.ActivarTriggerAnimacion("Nacimiento")
+ControllerTwine.EsperarTiempoSegundos(0.3)
+>
+[[Ir nacer el bebe]]
+
+:: Ir nacer el bebe
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Pujando")
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Nacimiento")
+bebe.cambiarMaterialCianosis()
+ControllerTwine.ActivarGameobject("SeNecesitaToallaMO")
+ControllerTwine.ActivarGameobject("TriggerReloj")
+ControllerTwine.ActivarGameobject("CordonUmbilical")
+bebe.ActivarPartesCuerpo()
+ControllerTwine.EsperarTiempoSegundos(7)
+>
+[[Antes de Iniciar caso]]
+
+:: Antes de Iniciar caso
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Respira")
+ControllerTwine.ActivarAudio("DialogoNacimientoVersionFacil")
+ControllerTwine.ActivarGameobject("Reloj")
+ControllerTwine.CambiarColorSemaforo("verde")
+ControllerTwine.EsperarTiempoSegundos(12)
+>
+[[Iniciar caso]]
+
+:: Iniciar caso
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Doctora_A";"Idle")
+ControllerTwine.DestruirGameobject("TriggerReloj")
+ControllerTwine.ActivarGameobject("Bebe")
+baby.ActivarTriggerAnimacion("Agitado")
+ControllerTwine.ActivarGameobject("QuejidoPadre")
+baby.cambiarAPasoToalla()
+baby.estarEnIntervencion(true)
+baby.cambiarMaterialCianosis()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+Debe secar y estimular al bebé con la compresa caliente.
+[[Ordenar que se ponga en contacto con la madre]]
+
+:: Ordenar que se ponga en contacto con la madre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("BebeNacimiento")
+baby.ActivarPartesCuerpo()
+baby.estarEnIntervencion(true)
+>
+Debe secar y estimular al bebé con la compresa caliente.
+[[Audio segun accion]]
+
+:: Audio segun accion
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.AudioSecadoDificultadSegunAccion()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+[[Calentar y secar parte 2]]
+
+:: Calentar y secar parte 2
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.cambiarSeSecoBebe()
+ControllerTwine.ReactivarCronometro()
+baby.estarEnIntervencion(true)
+>
+Debe continuar secando y estimulando al bebé.
+[[Espera antes de audio retroalimentación secado]]
+
+:: Espera antes de audio retroalimentación secado
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(10)
+>
+[[Audio detener proceso antes de retroalimentación secado]]
+
+:: Audio detener proceso antes de retroalimentación secado
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.cambiarAPasoToalla()
+ControllerTwine.ActivarAudioDetenerProceso()
+>
+[[Audio retroalimentacion secado]]
+
+:: Audio retroalimentacion secado
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("SeNecesitaToallaMO")
+ControllerTwine.ResponderSegunAccionCaso2RAQuejido()
+baby.estarEnIntervencion(false)
+>
+[[Video retroalimentacion secado]]
+
+:: Video retroalimentacion secado
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReproducirVideoSegunAccion()
+ControllerTwine.DesactivarGameobject("CordonUmbilical")
+ControllerTwine.ActivarGameobject("CordonCorte")
+>
+[[Finalizar Video Caso Basico]]
+
+:: Finalizar Video Caso Basico
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ResponderAntesDeContinuarSegunSiSeco30SegundosCasoBebeNacioDificultad()
+>
+[[Antes de continuar a pinzar]]
+
+:: Antes de continuar a pinzar
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ResponderContinuarSegunSiSeco15SegundosCasoBebeNacioMalQuejido()
+>
+¿Cómo está el bebé?
+Tiene buen tono, respira y llora[[Respuesta incorrecta caso quejido]]
+Respira y llora[[Respuesta incorrecta caso quejido]]
+Tiene dificultad respiratoria[[Respuesta correcta caso quejido]]
+
+:: Respuesta incorrecta caso quejido
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ReactivarCronometro()
+ControllerTwine.ActivarAudioConEspera("RespuestaIncorrectaCasoQuejido";false)
+>
+¿Que deberiamos hacer?
+Iniciar la aspiración de secreciones[[Respuesta incorrecta1 pregunta cordon]]
+Ordenar pinzamiento inmediato del cordón umbilical[[Respuesta correcta pregunta cordon]]
+Esperar al minuto para ordenar el pinzamiento del cordón umbilical[[Respuesta incorrecta2 pregunta cordon]]
+
+:: Respuesta correcta caso quejido
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ReactivarCronometro()
+ControllerTwine.ActivarAudioConEspera("RespuestaCorrectaCasoQuejido";false)
+>
+¿Que deberiamos hacer?
+Iniciar la aspiración de secreciones[[Respuesta incorrecta1 pregunta cordon]]
+Ordenar pinzamiento inmediato del cordón umbilical[[Respuesta correcta pregunta cordon]]
+Esperar al minuto para ordenar el pinzamiento del cordón umbilical[[Respuesta incorrecta2 pregunta cordon]]
+
+:: Respuesta incorrecta1 pregunta cordon
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaIncorrectaPreguntaCordon";true)
+ControllerTwine.ActivarColliderCalentador()
+ControllerTwine.ActivarGameobject("MesaSostenerPinzas")
+ControllerTwine.ActivarGameobject("Tijeras")
+ControllerTwine.ActivarGameobject("PinzasA")
+ControllerTwine.ActivarGameobject("PinzasB")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Corte")
+ControllerTwine.SeCortoCordon()
+>
+Debido al grado de dificultad respiratoria se debe ordenar el pinzamiento del cordón antes del minuto.
+[[Ordenar el pinzamiento inmediato del cordón umbilical]]
+
+:: Respuesta incorrecta2 pregunta cordon
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaIncorrecta2PreguntaCordon";true)
+ControllerTwine.ActivarColliderCalentador()
+ControllerTwine.ActivarGameobject("MesaSostenerPinzas")
+ControllerTwine.ActivarGameobject("Tijeras")
+ControllerTwine.ActivarGameobject("PinzasA")
+ControllerTwine.ActivarGameobject("PinzasB")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Corte")
+ControllerTwine.SeCortoCordon()
+>
+Debido al grado de dificultad respiratoria se debe ordenar el pinzamiento del cordón antes del minuto.
+[[Ordenar el pinzamiento inmediato del cordón umbilical]]
+
+:: Respuesta correcta pregunta cordon
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaCorrectaPreguntaCordon";true)
+ControllerTwine.ActivarColliderCalentador()
+ControllerTwine.ActivarGameobject("MesaSostenerPinzas")
+ControllerTwine.ActivarGameobject("Tijeras")
+ControllerTwine.ActivarGameobject("PinzasA")
+ControllerTwine.ActivarGameobject("PinzasB")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Corte")
+ControllerTwine.SeCortoCordon()
+>
+[[Ordenar el pinzamiento inmediato del cordón umbilical]]
+
+:: Ordenar el pinzamiento inmediato del cordón umbilical
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.DesactivarGameobject("MesaSostenerPinzas")
+ControllerTwine.DesactivarGameobject("Tijeras")
+ControllerTwine.DesactivarGameobject("PinzasB")
+ControllerTwine.DestruirGameobject("SM_Cordon_01")
+ControllerTwine.DestruirGameobject("SM_Cordon_02")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Idle")
+ControllerTwine.DesactivarGameobject("Bebe")
+ControllerTwine.AcomodarToallas()
+ControllerTwine.ActivarGameobject2("Bebe")
+baby.ActivarTriggerAnimacion("Agitado")
+baby.BebeCianotico(true)
+ControllerTwine.CambiarRutaDoctorACalentador()
+baby.cambiarAPasoBebe()
+baby.ImpedirMostrarVideo()
+Calentador.cambiarAPasoCalentador()
+ControllerTwine.ActivarAudio("DialogoLlevarACalentador")
+ControllerTwine.RecordarMoverBebe()
+baby.cambiarSeSecoBebe()
+baby.cambiarSeAspiroBebe()
+ControllerTwine.RecordarMoverBebe()
+ControllerTwine.DetenerCronometro()
+>
+Traslada al bebé al calentador radiante para continuar.
+[[Bebé en contacto con el calentador]]
+
+:: Bebé en contacto con el calentador
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.CambiarAProcedimientosEnCalentador()
+baby.BebeCianotico(true)
+baby.Reescalar()
+baby.ActivarTriggerAnimacion("Olfateo")
+ControllerTwine.DestruirGameobject("CronometroAdorno")
+ControllerTwine.CambiarPosicionSemaforo()
+ControllerTwine.ActivarAudioConEspera("EstaEnCalentadorRA";false)
+ControllerTwine.eliminarScriptsCalentador()
+baby.estarEnIntervencion(false)
+baby.cambiarAPasoSonda(true)
+ControllerTwine.ActivarAnimacion("Doctora_B";"Secar")
+ControllerTwine.ActivarGameobject("ToallaAnimacionSecado")
+>
+¿Qué intervención deberíamos realizar?
+Iniciar oxígeno con VPP[[Respuesta incorrecta ventilacion]]
+Iniciar oxígeno con PEEP[[Respuesta correcta ventilacion]]
+Iniciar oxígeno a flujo libre[[Respuesta incorrecta ventilacion]]
+
+:: Respuesta correcta ventilacion
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaCorrectaPreguntaVentilacionPEEP";true)
+>
+Debemos iniciar la PEEP.
+[[Antes de ventilacion]]
+
+:: Respuesta incorrecta ventilacion
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaIncorrectaPreguntaVentilacionPEEP";true)
+>
+Debemos iniciar la PEEP.
+[[Antes de ventilacion]]
+
+:: Antes de ventilacion
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("SemaforoVerde";true)
+>
+Debemos iniciar la PEEP.
+[[Paso usar neopuff]]
+
+:: Paso usar neopuff
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EsperarTiempoSegundos(15)
+ControllerTwine.ReactivarCronometro()
+baby.estarEnIntervencion(true)
+baby.cambiarAPasoBebe()
+baby.cambiarAPasoNeopuff(true)
+ControllerTwine.ActivarGameobject("SeNecesitaNeopuff")
+>
+Debes realizar la PEEP con el neopuff.
+[[Validacion se puso dispositivo]]
+
+:: Validacion se puso dispositivo
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.VerificarSiAcomodoDispositivo()
+>
+[[Recordatorio ver reloj PEEP]]
+
+:: Recordatorio ver reloj PEEP
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.PermiteDebePasarAlPonerBolsa(false)
+ControllerTwine.ActivarGameobject("FlechaNeopuff")
+ControllerTwine.ActivarAudioConEspera("VerificarPEEPEnReloj";true)
+>
+Verifica durante la PEEP que la presión esté en el valor sugerido.
+[[Antes de succión]]
+
+:: Antes de succión
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("IniciarSuccionQuejido";false)
+baby.cambiarAPasoSonda(true)
+>
+¿Qué procedimiento adicional deberíamos realizar?
+Aspiración de secreciones[[Respondio bien succion]]
+Administrar vía aérea alternativa[[Respondio mal succion]]
+
+:: Respondio bien succion
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("BienSuccionQuejido";true)
+>
+[[Indicacion quitar dispositivo]]
+
+:: Respondio mal succion
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("MalSuccionQuejido";true)
+>
+[[Indicacion quitar dispositivo]]
+
+:: Indicacion quitar dispositivo
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.DesactivarGameobject("FlechaNeopuff")
+baby.cambiarAPasoAgarrarDispositivo(true)
+baby.AcomodarNeopuffNuevaPosicion(true)
+baby.cambiarAPasoNeopuff(false)
+baby.estarEnIntervencion(false)
+ControllerTwine.ActivarAudio("IndicacionQuitarDispositivo")
+ControllerTwine.ActivarGameobject("FlechaParaQuitarDispositivo")
+>
+Mueve el dispositivo en T Neopuff para permitir que tu ayudante realice la succión
+[[Succion]]
+
+:: Succion
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.cambiarAPasoAgarrarDispositivo(false)
+ControllerTwine.DesactivarGameobject("FlechaParaQuitarDispositivo")
+ControllerTwine.ActivarGameobject(SonidoSuccion)
+ControllerTwine.ActivarAudio("DialogoEnBlanco")
+baby.CambiarPosicionOriginalDispositivoVentilacion()
+ControllerTwine.ActivarAnimacion("Doctora_B";"Sonda")
+ControllerTwine.DesactivarSonda()
+ControllerTwine.DesactivarGameobject("ToallaAnimacionSecado")
+ControllerTwine.ReactivarCronometro()
+baby.estarEnIntervencion(true)
+ControllerTwine.EsperarTiempoSegundos(5)
+>
+Se deben aspirar secreciones con la sonda de succión.
+[[Antes de Subir presion blender]]
+
+:: Antes de Subir presion blender
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.AcomodarNeopuffNuevaPosicion(true)
+ControllerTwine.DesactivarGameobject(SonidoSuccion)
+ControllerTwine.ActivarSonda()
+baby.cambiarAPasoNeopuff(true)
+baby.estarEnIntervencion(true)
+ControllerTwine.ActivarAnimacion("Doctora_B";"Idle")
+ControllerTwine.DesactivarGameobject("ToallaAnimacionSecado")
+baby.cambiarAPasoSonda(false)
+ControllerTwine.ActivarAudioConEspera("DialogoManiobraAdicionalQuejido";false)
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PICOBaja")
+>
+¿Qué maniobra adicional debería hacerse durante el procedimiento de PEEP? 
+Colocar oxímetro de pulso[[Respuesta correcta maniobra adicional]]
+Colocar catéteres umbilicales[[Respuesta incorrecta maniobra adicional]]
+Pasar bolo de solución salina[[Respuesta incorrecta maniobra adicional]]
+
+:: Respuesta incorrecta maniobra adicional
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("DialogoMalManiobraAdicionalQuejido";true)
+>
+Debe colocarse el oxímetro de pulso al bebé.
+[[Ordenar que se coloque el oximetro de pulso]]
+
+:: Respuesta correcta maniobra adicional
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("DialogoBienManiobraAdicionalQuejido";true)
+>
+Debe colocarse el oxímetro de pulso al bebé.
+[[Ordenar que se coloque el oximetro de pulso]]
+
+:: Ordenar que se coloque el oximetro de pulso
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarGameobject("FlechaOrdenes")
+ControllerTwine.ActivarGameobject("CanvasOrdenOximetro")
+>
+Oprime en el botón sobre tu acompañante para ordenarle que conecte el oximetro de pulso en el bebé.
+[[Se coloca el oximetro de pulso]]
+
+:: Se coloca el oximetro de pulso
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.DesactivarGameobject("FlechaOrdenes")
+baby.ActivarTriggerAnimacion("Oximetro")
+ControllerTwine.ActivarAnimacion("Doctora_B";"Oximetro")
+ControllerTwine.ActivarGameobject2("OximetrO")
+ControllerTwine.DesactivarGameobject("OximetrO")
+ControllerTwine.DesactivarGameobject("CanvasOrdenOximetro")
+ControllerTwine.ActivarAudio("DialogoContinuarPEEPOximetro")
+ControllerTwine.ReactivarCronometro()
+ControllerTwine.EsperarTiempoSegundos(15)
+baby.estarEnIntervencion(true)
+baby.cambiarAPasoBebe()
+baby.cambiarAPasoNeopuff(true)
+>
+Debes continuar con la PEEP con el neopuff.
+[[Paso usar neopuff parte 2]]
+
+:: Paso usar neopuff parte 2
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.ActivarTriggerAnimacion("Olfateo")
+ControllerTwine.ActivarGameobject(SonidoOximetro)
+ControllerTwine.ActivarGameobject("ArrowsFrecuencia")
+ControllerTwine.ActivarAnimacion("Doctora_B";"Secar")
+ControllerTwine.ActivarGameobject("ToallaAnimacionSecado")
+ControllerTwine.ActivarGameobject("OximetroTipBebe")
+ControllerTwine.DestruirGameobject("SK_OximetroTip_Rig_Anim")
+ControllerTwine.EscribirValoresOximetroRandomQuejido()
+ControllerTwine.ActivarGameobject("FlechaNeopuff")
+>
+Debes continuar con la PEEP con el neopuff.
+[[Antes de retroalimentación neopuff]]
+
+:: Antes de retroalimentación neopuff
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RecordatorioRelojDurantePEEP";true)
+>
+[[Audio retroalimentacion neopuff]]
+
+:: Audio retroalimentacion neopuff
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("FlechaNeopuff")
+ControllerTwine.DesactivarGameobject("Video")
+baby.estarEnIntervencion(false)
+ControllerTwine.ResponderSegunAccionCasoRADispositivoTQuejido()
+baby.cambiarAPasoNeopuff(false)
+ControllerTwine.DesactivarGameobject("SeNecesitaNeopuff")
+>
+[[Finalizar Video neopuff]]
+
+:: Finalizar Video neopuff
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejido()
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ResponderAntesDeContinuarSegunSiVentilo60SegundosNoRespondioRAQuejido()
+>
+[[Antes de Realizar MR SOPA]]
+
+:: Antes de Realizar MR SOPA
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejidoRango("62";"67")
+ControllerTwine.ResponderContinuarSegunSiVentilo60SegundosNoRespondioRAQuejido()
+>
+[[Recordatorio monitoria]]
+
+:: Recordatorio monitoria
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejidoRango("55";"60")
+ControllerTwine.ActivarAudioConEspera("RecordatorioMonitoria";true)
+>
+Debes estar pendiente de la monitoría del recién nacido.
+[[Evaluar mejoria tras PEEP]]
+
+:: Evaluar mejoria tras PEEP
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejidoRango("67";"70")
+ControllerTwine.ActivarAudioConEspera("EstadoBebeTrasPEEP";false)
+>
+¿El bebé ha mejorado?
+Si, ese es el tono y esfuerzo respiratorio esperado[[Respuesta incorrecta caso quejido tras PEEP]]
+No, ese no es el tono ni el esfuerzo respiratorio esperado[[Respuesta correcta caso quejido tras PEEP]]
+
+:: Respuesta incorrecta caso quejido tras PEEP
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaIncorrectaCasoQuejidoPEEP";true)
+>
+Puedes verificar el esfuerzo respiratorio y la saturación de oxígeno para evaluar la mejoría del recién nacido.
+[[Orden para subir presión de blender]]
+
+:: Respuesta correcta caso quejido tras PEEP
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("RespuestaCorrectaCasoQuejidoPEEP";true)
+>
+Puedes verificar el esfuerzo respiratorio y la saturación de oxígeno para evaluar la mejoría del recién nacido.
+[[Orden para subir presión de blender]]
+
+:: Orden para subir presión de blender
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("AjustarPresionBlenderQuejido";false)
+>
+¿En qué valor deberíamos ajustar la FiO2 del blender?
+Dejar FiO2 en el 21%[[Respondio mal pregunta final blender]]
+Subir gradualmente la FiO2 hasta 30%[[Respondio mal pregunta final blender]]
+[[Subir progresivamente la FiO2 según la oximetría hasta el 100%]]
+
+:: Respondio mal pregunta final blender
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejidoRango("60";"65")
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.CambiarRutaDoctorGuiaBlender()
+ControllerTwine.ActivarAudioConEspera("2130PresionBlender";true)
+>
+Podemos variar gradualmente la FiO2 hasta el 100% según la oximetria del bebé
+[[Subir presion blender]]
+
+:: Subir progresivamente la FiO2 según la oximetría hasta el 100%
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroVaAMejorarQuejidoRango("65";"70")
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.CambiarRutaDoctorGuiaBlender()
+ControllerTwine.ActivarAudioConEspera("BienPresionBlender";true)
+>
+Podemos variar gradualmente la FiO2 hasta el 100% según la oximetria del bebé
+[[Subir presion blender]]
+
+:: Subir presion blender
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.EscribirValoresOximetroRandomSubeMejoraQuejidoPEEP()
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.ActivarAudio("AyudaBlenderQuejido")
+ControllerTwine.ActivarAnimacion("DoctoraGuia";"Blender")
+ControllerTwine.ActivarAnimacion("Anim_BlenderDial";"Mover100")
+ControllerTwine.ReactivarCronometro()
+ControllerTwine.EsperarTiempoSegundos(20)
+baby.estarEnIntervencion(true)
+baby.cambiarAPasoNeopuff(true)
+>
+Realiza la PEEP.
+[[Bebé mejorando]]
+
+:: Bebé mejorando
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudio("DialogoBebeAPuntoDeMejorar")
+ControllerTwine.EsperarTiempoSegundos(17)
+ControllerTwine.EscribirValoresOximetroRandomSubeMejoraQuejido()
+ControllerTwine.DesactivarGameobject("QuejidoPadre")
+baby.ActivarTriggerAnimacion("RespirandoNormal")
+baby.ActivarTriggerAnimacion("Llanto")
+>
+Revisa la frecuencia cardiaca y la saturación de oxígeno.
+[[Pregunta Bebé mejorando]]
+
+:: Pregunta Bebé mejorando
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.BebeMejora()
+baby.cambiarMaterialPiel()
+ControllerTwine.ActivarAudioConEspera("PreguntaBebeAPuntoDeMejorar";false)
+>
+¿El estado del bebé ha mejorado?
+El bebé presentó una mejoría en su estado clínico[[Respondio bien evolucion estado bebe]]
+El bebé no ha mejorado[[Respondio mal evolucion estado bebe]]
+
+:: Respondio bien evolucion estado bebe
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PreguntaBienBebeAPuntoDeMejorarQuejido";true)
+>
+[[Audio retroalimentacion bolsa final]]
+
+:: Respondio mal evolucion estado bebe
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PreguntaMalBebeAPuntoDeMejorarQuejido";true)
+>
+[[Audio retroalimentacion bolsa final]]
+
+:: Audio retroalimentacion bolsa final
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.cambiarAPasoNeopuff(false)
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.ActivarAnimacion("Doctora_B";"Idle")
+ControllerTwine.DesactivarGameobject("ToallaAnimacionSecado")
+ControllerTwine.ActivarAudioConEspera("PreguntaOxigenoFlujoLibrePEEP";false)
+baby.DebeActivarSecuenciaVPP(false)
+baby.cambiarAPasoGorro()
+baby.BebeCianotico("false")
+baby.ActivarTriggerAnimacion("ArribaRespirando")
+ControllerTwine.ActivarGameobject2("LlantoPadre")
+ControllerTwine.EscribirValoresOximetroVaAMejorarVentilacion2()
+>
+¿Qué debemos hacer ahora?
+Llevarlo a la madre inmediatamente[[Respondio mal oxigeno flujo libre]]
+Dar oxígeno a flujo libre[[Respondio bien oxigeno flujo libre]]
+Trasladar a la unidad de recién nacidos[[Respondio mal oxigeno flujo libre]]
+
+:: Respondio bien oxigeno flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("BienPreguntaOxigenoFlujoLibre";true)
+>
+[[Pregunta FIO2 oxigeno flujo libre]]
+
+:: Respondio mal oxigeno flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("MalPreguntaOxigenoFlujoLibre";true)
+>
+[[Pregunta FIO2 oxigeno flujo libre]]
+
+:: Pregunta FIO2 oxigeno flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAudioConEspera("PreguntaFiO2OxigenoFlujoLibre";false)
+>
+¿Que debemos hacer mientras se da oxígeno a flujo libre?
+Disminuir Fi02 al 21%[[Respondio mal Fio2 flujo libre]]
+Establecer Fi02 en 30%[[Respondio mal Fio2 flujo libre]]
+Iniciar descenso progresivo de FiO2 según oximetrías dinámicas[[Respondio bien Fio2 flujo libre]]
+
+:: Respondio bien Fio2 flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.ActivarAudioConEspera("BienPreguntaFiO2FlujoLibre";true)
+>
+[[Aplicar oxigeno flujo libre]]
+
+:: Respondio mal Fio2 flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ImpedirQueSeMueva(true)
+ControllerTwine.ActivarAudioConEspera("MalPreguntaFiO2FlujoLibre";true)
+>
+[[Aplicar oxigeno flujo libre]]
+
+:: Aplicar oxigeno flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.PosicionFlujoLibre(true)
+ControllerTwine.ActivarAnimacion("Disp en T Neopuff";"PEEP0")
+ControllerTwine.ActivarAudioConEspera("MientrasFlujoLibre";true)
+>
+[[Aplicando oxigeno flujo libre]]
+
+:: Aplicando oxigeno flujo libre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ReactivarCronometro()
+ControllerTwine.ActivarAnimacion("DoctoraGuia";"Blender")
+ControllerTwine.ActivarAnimacion("Anim_BlenderDial";"Regresar")
+ControllerTwine.EsperarTiempoSegundos(20)
+ControllerTwine.ActivarGameobject("FlechaNeopuff")
+ControllerTwine.ActivarAudio("PEEPMientrasFlujoLibre")
+>
+Cuando no se ocluye la máscara, el valor de la PEEP se mantiene en 0.
+[[Termino procedimientos caso]]
+
+:: Termino procedimientos caso
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.PosicionFlujoLibre(false)
+ControllerTwine.DesactivarGameobject("FlechaNeopuff")
+baby.DesacomodarNeopuff()
+ControllerTwine.EscribirValoresOximetroVaAMejorarVentilacion2()
+baby.CambiarPosicionOriginalDispositivoVentilacion()
+ControllerTwine.ImpedirQueSeMueva(false)
+ControllerTwine.ActivarAudioConEspera("FinalReanimacionAvanzadaBebeMejora";true)
+ControllerTwine.DestruirGameobject("Quejido")
+ControllerTwine.ActivarGameobject("LlantoPadre")
+>
+[[Paso Gorro caso 4]]
+
+:: Paso Gorro caso 4
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarGameobject("SeNecesitaGorroCalentador")
+ControllerTwine.PermiteDebePasarAlPonerGorro()
+>
+Debes colocarle el gorro al bebé.
+[[Ligadura del cordón]]
+
+:: Ligadura del cordón
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.cambiarAPasoPinza(true)
+ControllerTwine.ActivarGameobject("SeNecesitaPinzaCalentador")
+ControllerTwine.TomarTiempoLigaduraVentilacion()
+ControllerTwine.ActivarAudio("DialogoDebeLigarCordon")
+>
+Realiza la ligadura del cordón umbilical con el elemento necesario.
+[[Ligadura realizada del cordón]]
+
+:: Ligadura realizada del cordón
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.cambiarAPasoPinza(false)
+ControllerTwine.ActivarAudioConEspera("DialogoSeLigoCordon";true)
+>
+[[Cuidados recien nacido]]
+
+:: Cuidados recien nacido
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudioConEspera("DialogoUnidadRecienNacidos";true)
+>
+[[Cuidados recien nacido 1]]
+
+:: Cuidados recien nacido 1
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarAudio("DialogoUnidadRecienNacidos1")
+ControllerTwine.EsperarTiempoSegundos(15)
+ControllerTwine.DestruirGameobject("Bebe")
+ControllerTwine.DesactivarGameobject(SonidoOximetro)
+ControllerTwine.ActivarAnimacion("Door Frame_MD_02";"AbrirFinal")
+ControllerTwine.ActivarAnimacion("Incubadora";"trasladar")
+ControllerTwine.CambiarRutaDoctorBIncubadora()
+ControllerTwine.ActivarGameobject("BebeCalentadorMejora")
+>
+[[Fin simulacion]]
+
+:: Fin simulacion[END]
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("LlantoPadre")
+ControllerTwine.ActivarGameobject2("LlantoPadre")
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ActivarAudio("DialogoRetroalimentacionFinalDelCasoBase")
+ControllerTwine.acomodarCanvasRetroalimentacion()
+ControllerTwine.ActivarGameobject("CanvasReiniciarEscena")
+ControllerTwine.ActivarGameobject("ImgCreditos")
+ControllerTwine.ActivarGameobject("ObjetosCreditos")
+>

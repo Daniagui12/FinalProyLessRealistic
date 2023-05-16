@@ -1,0 +1,89 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CambioMaterial : MonoBehaviour
+{
+    private List<string> objetosRequeridos;
+    public List<string> objetosSeleccionados;
+
+    public Material bien;
+    public Material mal;
+    public Material falto;
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        objetosRequeridos = new List<string>();
+
+        objetosRequeridos.Add("Toalla");
+        objetosRequeridos.Add("Ambu");
+        objetosRequeridos.Add("Cronometro");
+        objetosRequeridos.Add("Pera De Goma");
+        objetosRequeridos.Add("EGC");
+        objetosRequeridos.Add("Mascarita");
+        objetosRequeridos.Add("Estetoscopio");
+        objetosRequeridos.Add("Flujo De Oxigeno");
+
+        objetosSeleccionados = new List<string>();
+
+    }
+
+    // Update is called once per frame
+    public IEnumerator EsperarEleccion()
+    {
+        for(int i=0; i< objetosSeleccionados.Count;i++)
+        {
+            if (objetosRequeridos.Contains(objetosSeleccionados[i].ToString()))
+            {
+                GameObject padre = GameObject.Find(objetosSeleccionados[i].ToString());
+                int cantHijos= padre.gameObject.transform.childCount;
+                for (int j=0; j<cantHijos;j++)
+                {
+                    if(padre.gameObject.transform.GetChild(j).name=="Outline")
+                    {
+                        padre.gameObject.transform.GetChild(j).GetComponent<MeshRenderer>().material = bien;
+                    }
+                }
+                
+
+            }
+            else
+            {
+                GameObject padre = GameObject.Find(objetosSeleccionados[i].ToString());
+                int cantHijos = padre.gameObject.transform.childCount;
+                for (int j = 0; j < cantHijos; j++)
+                {
+                    if (padre.gameObject.transform.GetChild(j).name == "Outline")
+                    {
+                        padre.gameObject.transform.GetChild(j).GetComponent<MeshRenderer>().material = mal;
+                    }
+                }
+            }
+            
+
+        }
+
+        for (int i = 0; i < objetosRequeridos.Count; i++)
+        {
+            if (!objetosSeleccionados.Contains(objetosRequeridos[i].ToString()))
+            {
+                GameObject padre = GameObject.Find(objetosRequeridos[i].ToString());
+                int cantHijos = padre.gameObject.transform.childCount;
+                for (int j = 0; j < cantHijos; j++)
+                {
+                    if (padre.gameObject.transform.GetChild(j).name == "Outline")
+                    {
+                        padre.gameObject.transform.GetChild(j).GetComponent<MeshRenderer>().material = falto;
+                    }
+                }
+
+
+            }
+        }
+
+        yield return "listo";
+    }
+    
+}

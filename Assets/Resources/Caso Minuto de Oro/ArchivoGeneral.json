@@ -1,0 +1,74 @@
+﻿{
+"audios":[
+		{
+			"source":"Frase 1"
+		},
+		{
+			"source":"Frase 2"
+		},
+		{
+			"source":"Frase 3"
+		},
+		{
+			"source":"Frase 5"
+		},
+		{
+			"source":"Frase 7"
+		},
+		{
+			"source":"Frase 8"
+		},
+		{
+			"source":"Frase 9"
+		},
+		{
+			"source":"Frase 14"
+		}
+	],
+	"preguntas":[
+		{
+			"pregunta":"¿Cuál es la edad gestacional?",
+			"source":"Frase 4 Pregunta 1"
+		},
+		{
+			"pregunta":"¿Cuántos bebés son?",
+			"source":"Frase 6 Pregunta 2"
+		},
+		{
+			"pregunta":"¿Hay factores de riesgo materno? ",
+			"source":"Frase 13 Pregunta 3"
+		},
+		{
+			"pregunta":"Características del líquido amniótico",
+			"source":"Frase 12 Pregunta 4"
+		}
+
+	],
+
+	"objetos":[
+		{
+			"nombre": "Compresa caliente"
+		},
+		{
+			"nombre": "Bolsa autoinflable"
+		},
+		{
+			"nombre": "Cronometro"
+		},
+		{
+			"nombre": "Pera De Goma"
+		},
+		{
+			"nombre": "Gorro"
+		},
+		{
+			"nombre": "Mascara neonatal recién nacido a término"
+		},
+		{
+			"nombre": "Estetoscopio"
+		},
+		{
+			"nombre": "Pinza"
+		}
+	]	
+}

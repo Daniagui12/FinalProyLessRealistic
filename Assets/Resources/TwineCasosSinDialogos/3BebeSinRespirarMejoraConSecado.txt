@@ -1,0 +1,384 @@
+﻿:: StoryTitle
+Proyecto neonatos Unity
+
+:: UserScript[script]
+
+
+:: UserStylesheet[stylesheet]
+
+:: Presentarse con la madre[START]
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.ActivarGameobject(ControllerSaludo)
+ControllerTwine.ActivarGameobject(ControllerCasoBaseMO)
+ControllerTwine.EsCasoBase()
+ControllerTwine.ActivarGameobject(FlechaMadre)
+ControllerTwine.IdentificarComoCasoSinAyuda()
+>
+[[Dialogo Presentarse con la madre]]
+
+:: Dialogo Presentarse con la madre
+{
+ControllerCasoBaseMO1.estaCercaDeMadre()
+}
+<
+ControllerTwine.DestruirGameobject("RevisarElementosSeleccionados")
+ControllerTwine.DestruirGameobject(ElementosPreparacionMinutoOro)
+ControllerTwine.OrdenarSaludoAMadre()
+ControllerTwine.DestruirGameobject(FlechaMadre)
+>
+Saluda a la madre y presentate como el doctor que atendará a su bebé.
+Hola, soy el doctor que atenderá a su bebé el día de hoy.[[Presentacion madre]]
+
+:: Presentacion madre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("LocomotionController")
+ControllerTwine.DestruirGameobject("Particle System mamá")
+ControllerTwine.DestruirGameobject(ControllerSaludo)
+ControllerTwine.DestruirGameobject(ControllerCasoBaseMO)
+ControllerTwine.EliminarOutline()
+ControllerTwine.DestruirGameobject(SalaMinutoOro)
+ControllerTwine.ActivarGameobject(ElementosMinutoOro)
+ControllerTwine.ActivarGameobject(BolsaMO)
+ControllerTwine.ActivarAudioMadre("DialogoMadre")
+>
+[[Antes nacer el bebe]]
+
+:: Antes nacer el bebe
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Doctora_A";"Nacimiento")
+ControllerTwine.ActivarAudio("DialogoPrepararse")
+ControllerTwine.EsperarTiempoSegundos(1)
+>
+[[Ir nacer el bebe 1]]
+
+:: Ir nacer el bebe 1
+{
+ControllerTwine.RequiereEspera()
+}
+<
+bebe.ActivarTriggerAnimacion("Nacimiento")
+ControllerTwine.EsperarTiempoSegundos(0.3)
+>
+[[Ir nacer el bebe]]
+
+:: Ir nacer el bebe
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Pujando")
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Nacimiento")
+bebe.cambiarMaterialCianosis()
+ControllerTwine.ActivarGameobject("SeNecesitaToallaMO")
+ControllerTwine.ActivarGameobject("TriggerReloj")
+ControllerTwine.ActivarGameobject("CordonUmbilical")
+bebe.ActivarPartesCuerpo()
+ControllerTwine.EsperarTiempoSegundos(7)
+>
+[[Antes de Iniciar caso]]
+
+:: Antes de Iniciar caso
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Respira")
+ControllerTwine.ActivarGameobject("Reloj")
+ControllerTwine.CambiarColorSemaforo("verde")
+>
+[[Iniciar caso]]
+
+:: Iniciar caso
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarAnimacion("Doctora_A";"Idle")
+ControllerTwine.DestruirGameobject("TriggerReloj")
+ControllerTwine.ActivarGameobject("Bebe")
+baby.cambiarAPasoToalla()
+baby.estarEnIntervencion(true)
+baby.cambiarMaterialCianosis()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+Debe secar y estimular al bebé con la compresa caliente.
+[[Ordenar que se ponga en contacto con la madre]]
+
+:: Ordenar que se ponga en contacto con la madre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DestruirGameobject("BebeNacimiento")
+baby.ActivarPartesCuerpo()
+baby.estarEnIntervencion(true)
+>
+Debe secar y estimular al bebé con la compresa caliente.
+[[Recordar continuar con secado]]
+
+:: Recordar continuar con secado
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.RecordarContinuarConSecado()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+[[Calentar y secar parte 2]]
+
+:: Calentar y secar parte 2
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.ActivarGameobject("SeNecesitaToallaMO")
+ControllerTwine.ReactivarCronometro()
+baby.estarEnIntervencion(true)
+baby.cambiarSeSecoBebe()
+>
+Debe continuar secando y estimulando al bebé.
+[[Finalizar Video Caso Basico]]
+
+:: Finalizar Video Caso Basico
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.RegistraCasoBebeNaceSinRespirarMejoraSecado()
+baby.estarEnIntervencion(false)
+baby.cambiarAPasoToalla()
+ControllerTwine.DesactivarGameobject("CordonUmbilical")
+ControllerTwine.ActivarGameobject("CordonCorte")
+>
+[[Paso Gorro]]
+
+:: Paso Gorro
+{
+baby.RealizoProcedimiento()
+}
+<
+baby.BebeMejora()
+baby.cambiarAPasoToalla()
+baby.ActivarTriggerAnimacion("NacimientoLlorando")
+baby.ActivarTriggerAnimacion("RespirandoNormal")
+baby.ActivarTriggerAnimacion("Llanto")
+ControllerTwine.ActivarGameobject("LlantoPadre")
+baby.cambiarMaterialPiel()
+baby.cambiarAPasoGorro()
+ControllerTwine.ReactivarCronometro()
+baby.estarEnIntervencion(true)
+ControllerTwine.ActivarGameobject("SeNecesitaToallaMO")
+ControllerTwine.ActivarGameobject("SeNecesitaGorro")
+>
+Debes colocar el gorro y la manta para propiciar la termorregulación.
+[[Registrar si puso gorro manta]]
+
+:: Registrar si puso gorro manta
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.RegistrarSiPusoGorroYManta()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+[[Ordenar pinzamiento del cordón]]
+
+:: Ordenar pinzamiento del cordón
+{}
+<
+ControllerTwine.ActivarGameobject("FlechaPinzamiento")
+ControllerTwine.DesactivarGameobject("SeNecesitaToalla")
+ControllerTwine.ReactivarCronometro()
+>
+Oprime el botón de abajo cuando desees ordenar el pinzamiento.
+[[Ordenar pinzamiento habitual del cordón umbilical]]
+
+:: Ordenar pinzamiento habitual del cordón umbilical
+{
+baby.RealizoProcedimiento()
+}
+<
+ControllerTwine.DesactivarGameobject("FlechaPinzamiento")
+ControllerTwine.CortarCordonUmbilical()
+>
+[[Realizar pinzamiento habitual del cordon umbilical]]
+
+:: Realizar pinzamiento habitual del cordon umbilical
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarGameobject("MesaSostenerPinzas")
+ControllerTwine.ActivarGameobject("Tijeras")
+ControllerTwine.ActivarGameobject("PinzasA")
+ControllerTwine.ActivarGameobject("PinzasB")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Corte")
+ControllerTwine.DesactivarGameobject("FlechaPinzamiento")
+ControllerTwine.SeCortoCordon()
+ControllerTwine.ActivarAudio("CortandoCordon")
+ControllerTwine.CambiarMaterialPielSegunAccion()
+baby.DesactivarAudio()
+>
+[[Realizar pinzamiento habitual del cordon umbilical 1]]
+
+:: Realizar pinzamiento habitual del cordon umbilical 1
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DetenerLlanto()
+ControllerTwine.ActivarGameobject2("LlantoPadre")
+ControllerTwine.ActivarGameobject("CordonBebe")
+ControllerTwine.DesactivarGameobject("MesaSostenerPinzas")
+ControllerTwine.DesactivarGameobject("Tijeras")
+ControllerTwine.DesactivarGameobject("PinzasB")
+ControllerTwine.DestruirGameobject("SM_Cordon_01")
+ControllerTwine.DestruirGameobject("SM_Cordon_02")
+ControllerTwine.ActivarAnimacion("Doctora_A";"Idle")
+ControllerTwine.ActivarAudioConEspera("DialogoEnBlanco";true)
+>
+[[Ligadura del cordón]]
+
+:: Ligadura del cordón
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.CambiarMaterialPielSegunAccion()
+ControllerTwine.TomarTiempoLigadura()
+baby.cambiarAPasoPinza(true)
+>
+Realiza la ligadura del cordón umbilical con el elemento necesario
+[[Ligadura realizada del cordón]]
+
+:: Ligadura realizada del cordón
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.CambiarMaterialPielSegunAccion()
+baby.cambiarAPasoPinza(false)
+ControllerTwine.ActivarAudioConEspera("DialogoSeLigoCordon";true)
+>
+[[Dejar al bebé en contacto piel a piel con la madre]]
+
+:: Dejar al bebé en contacto piel a piel con la madre
+{
+ControllerTwine.RequiereEspera()
+}
+<
+baby.ReajustarPosicionToalla()
+ControllerTwine.CambiarMaterialPielSegunAccion()
+ControllerTwine.AcomodarToallaFinalCasoBaseSinGuia()
+ControllerTwine.ActivarAnimacion("B20_Ch_01_Avatar";"Amamantar")
+baby.ActivarTriggerAnimacion("Amamantar")
+ControllerTwine.ActivarAudioConEspera("DialogoIniciaLanctanciaPielAPiel";true)
+>
+[[Retroalimentacion escenario]]
+
+:: Retroalimentacion escenario
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.CambiarMaterialPielSegunAccion()
+ControllerTwine.ActivarAudioConEspera("RetroalimentacionEscenario";true)
+>
+Mira en este televisor la retroalimentación de la simulación.
+[[Retroalimentacion secado 15 segundos]]
+
+:: Retroalimentacion secado 15 segundos
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("seco15";"VideoSeco15BebeNacioMal";"AudioSeco15Bebe";"Secado y estimulación antes de los 15 segundos";"No hubo secado y estimulación antes de los 15 segundos";"VideoSeco15BebeNacioMal";"AudioNoSeco15Bebe")
+>
+[[Retroalimentacion secado 30 segundos]]
+
+:: Retroalimentacion secado 30 segundos
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("seco30";"VideoSeco30BebeNacioMal";"AudioSeco30BebeNacioMal";"Secado y estimulación antes de los 30 segundos";"No hubo secado y estimulación hasta los 30 segundos";"VideoSeco30BebeNacioMal";"AudioNoSeco30BebeNacioMal")
+>
+[[Retroalimentacion pinzamiento]]
+
+:: Retroalimentacion pinzamiento
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("ordenoPinzamientoATiempo";"VideoPinzamientoBienBebe";"AudioPinzamientoBienBebeNacioMal";"Ordenaste a tiempo el pinzamiento del cordón umbilical";"No ordenaste a tiempo el pinzamiento del cordón umbilical";"VideoPinzamientoMalBebe";"AudioPinzamientoMalBebeNacioMal")
+>
+[[Retroalimentacion ligadura]]
+
+:: Retroalimentacion ligadura
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("ligoATiempo";"VideoLigoBebe";"AudioLigoBebe";"Realizaste la ligadura del cordón umbilical";"Demoraste en realizar la ligadura del cordón umbilical";"VideoNoLigoBebe";"AudioNoLigoBebe")
+>
+[[Retroalimentacion gorro]]
+
+:: Retroalimentacion gorro
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("sePusoGorro";"VideoGorroBebe";"AudioGorroBebe";"Le pusiste el gorro al bebé para optimizar la termorregulación";"No le pusiste el gorro al bebé para optimizar la termorregulación";"VideoNoGorroBebe";"AudioNoGorroBebe")
+>
+[[Retroalimentacion manta]]
+
+:: Retroalimentacion manta
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacionCasoMantas()
+>
+[[Retroalimentacion estetoscopio]]
+
+:: Retroalimentacion estetoscopio
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.ActivarVideoRetroalimentacion("usoEstetoscopio";"VideoEstetoscopioBebe";"AudioEstetoscopioBebe";"Usaste el estetoscopio";"No usaste el estetoscopio";"VideoNoEstetoscopioBebe";"AudioNoEstetoscopioBebe")
+>
+[[Registrar si puso gorro manta final]]
+
+:: Registrar si puso gorro manta final
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.RegistrarSiPusoGorroYManta()
+ControllerTwine.EsperarTiempoSegundos(0.1)
+>
+[[Fin simulacion]]
+
+:: Fin simulacion[END]
+{
+ControllerTwine.RequiereEspera()
+}
+<
+ControllerTwine.DesactivarGameobject("Video")
+ControllerTwine.ActivarAudio("DialogoRetroalimentacionFinalDelCasoBase")
+ControllerTwine.acomodarCanvasRetroalimentacion()
+ControllerTwine.ActivarGameobject("ImgCreditos")
+ControllerTwine.ActivarGameobject("ObjetosCreditos")
+>
+
+
