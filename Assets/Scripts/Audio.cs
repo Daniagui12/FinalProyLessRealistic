@@ -23,7 +23,6 @@ public class Audio : MonoBehaviour
     public GameObject flechaBio;
     public GameObject video;
     public GameObject indicador;
-    public Animator puertaSala;
     public Animator puertaAnimator;
     
     private JsonObject listaAudios;
@@ -88,7 +87,6 @@ public class Audio : MonoBehaviour
             Destroy(GameObject.Find("SalaBioseguridadTrigger"));
             Destroy(GameObject.Find("RecordatorioAntesCaso"));
             StartCoroutine(IniciarDialogoDoctor());
-            puertaSala.SetTrigger("Cerrar");
             Destroy(GameObject.Find("Particle System Preguntas"));
         }
     }

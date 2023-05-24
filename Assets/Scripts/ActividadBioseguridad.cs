@@ -28,12 +28,11 @@ public class ActividadBioseguridad : MonoBehaviour
     {
         seLavoManos = false;
         puedeRegresar = false;
-        InvokeRepeating("RecordarActividad", 20.0f, 35.0f);
     }
 
     void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("Bioseguridad").Length==0 && !puedeRegresar)
+        if(GameObject.FindGameObjectsWithTag("Bioseguridad").Length==2 && !puedeRegresar)
         {            
             puerta.SetTrigger("Abrir");
             StartCoroutine(inicio.Explicar(Resources.Load<AudioClip>("Audios Voz Real/DialogoSiguienteFaseContinuar")));
